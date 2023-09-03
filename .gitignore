@@ -1,3 +1,4 @@
 ignore/
 build/*.html
 build/recitation/
+build/winhost.exe
