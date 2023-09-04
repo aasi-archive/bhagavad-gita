@@ -1,3 +1,7 @@
+/* 
+    Chapter titles in Sanskrit and English
+*/
+
 var chapter_titles = {
     1: "अर्जुनविषादयोगः",
     2: "साङ्ख्ययोगः",

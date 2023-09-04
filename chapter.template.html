@@ -16,12 +16,13 @@
 </head>
 
 <body>
+    <!-- SCROLL BAR -->
     <div class="progess-bar-header">
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
         </div>
     </div>
-
+    <!-- NAVBAR -->
     <nav class="navbar shadow-lg px-2 py-3" id="navbar">
         <div class="col-1">
             <a href="/{{previous_chapter_url}}" class="btn btn-nav btn-secondary-outline"><span
@@ -43,11 +44,13 @@
         </div>
     </nav>
 
+    <!-- CHAPTER INFORMATION USED BY SIDEBAR CREATOR -->
     <div id="chapter_information" data-n-verses="{{n_verses}}" data-chapter-no="{{chapter}}"
         data-chapter-title="{{chapter_title}}"></div>
 
     <div class="container">
         {% for verse in verses %}
+        <!-- VERSE CARD -->
         <div class="py-3" id="{{verse['verse_number']}}"></div>
         <div class="card shadow-lg my-3">
             <div class="card-body">
@@ -78,9 +81,20 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col-2">
-                        <button class="btn btn-verse-menu btn-secondary" style="float:left;" onClick="PlayAudio('{{verse['verse_number']}}_audio')"><span
-                                class="fa fa-volume-up"></span></button>
-                        <audio id="{{verse['verse_number']}}_audio" src="/recitation/{{verse['chapter_number']}}_{{verse['verse_number']}}.mp3"></audio>
+                        <!-- MEDIA PLAYER PART -->
+                        <div class="media-player">
+                            <button class="btn btn-verse-menu btn-play-audio btn-secondary" style="float:left;"
+                                data-audio-pointer="recitation_{{verse['verse_number']}}"><span
+                                    class="fa fa-volume-up"></span>
+                            </button>
+
+                            <button class="btn btn-verse-menu btn-stop-audio btn-secondary mx-1" style="float:left;"
+                                data-audio-pointer="recitation_{{verse['verse_number']}}"><span
+                                    class="fa fa-stop"></span></button>
+
+                            <audio id="recitation_{{verse['verse_number']}}"
+                                src="/recitation/{{verse['chapter_number']}}_{{verse['verse_number']}}.mp3"></audio>
+                        </div>
                     </div>
                     <div class="col-8">
                         <h4>{{verse["chapter_number"]}}:{{verse["verse_number"]}}</h4>
@@ -96,6 +110,7 @@
         {% endfor %}
     </div>
 
+    <!-- SHARE VERSE MODAL -->
     <div class="modal fade" tabindex="-1" id="copy-verse-modal">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

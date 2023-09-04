@@ -1,3 +1,4 @@
+/* Creates the chapter cards on index */
 function GenerateGitaChapterCard(chapter)
 {
     var chapter_card_html = `<div class="col-lg-4 col-md-4 col-sm-12">

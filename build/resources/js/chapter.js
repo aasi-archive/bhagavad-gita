@@ -1,10 +1,17 @@
+/* Contains code the Chapter Page */
+
+/* This creates a offCanvas that has a list that
+   links to every verse on the page
+*/
 function AddSidebar() {
 
     var number_of_verses = $('#chapter_information').data('n-verses');
     var chapter_no = $('#chapter_information').data('chapter-no');
 
     var offcanvas_html = `
-    <img src="/resources/images/sidebar.png" class="sidebar-button" data-bs-toggle="offcanvas" data-bs-target="#verse_browser_offcanvas" aria-controls="verse_browser_offcanvas"></button>
+    <button class="btn btn-lg btn-outline-warning sidebar-button" data-bs-toggle="offcanvas" data-bs-target="#verse_browser_offcanvas" aria-controls="verse_browser_offcanvas">
+    <span class="fa fa-lg fa-arrow-right"></span>
+    </button>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="verse_browser_offcanvas" aria-labelledby="verse_browser_offcanvas_label">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="verse_browser_offcanvas_label">${chapter_no}. ${chapter_titles_english[chapter_no]}</h5>
@@ -24,6 +31,11 @@ function AddSidebar() {
     $("#verse_browser_div").append(content);
 }
 
+/*
+    We disable the default scrollback and have an orange line on top that denotes the scroll position
+    It looks much better.
+*/
+
 function ProgressBarScrollCallback() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
         height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
@@ -39,6 +51,9 @@ function ProgressBarScrollCallback() {
     }
 }
 
+/* 
+    Open up the share verse link modal.
+*/
 function ShareVerseLink(modal, selector, chapter, verse)
 {
     var domain = location.protocol + '//' + location.host;
