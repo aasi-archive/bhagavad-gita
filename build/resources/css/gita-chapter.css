@@ -23,6 +23,10 @@
 }
 
 
+html {
+    scroll-snap-type: y mandatory;
+}
+
 html::-webkit-scrollbar {
     display: none;
 }
@@ -54,30 +58,62 @@ body {
 }
 
 .card {
-    transition: all .1s ease-in-out;
+    border-radius: 25px;
+    transition: all .3s ease;
     background-color: var(--theme-color-bg-light);
     color: var(--theme-color-text);
 }
 
 .card .card-footer {
+    border-radius: 25px;
     background-color: var(--theme-color-bg-lighter);
     color: var(--theme-color-text);
     text-align: center;
-}
-
-.card:hover {
-    transform: scale(1.03);
+    font-family: Indicia;
+    font-weight: bold;
 }
 
 .sanskrit-verse {
+    /* 
+        This was added to help position the btn-transliteration as 
+        position: absolute looks for the nearest parent with "position: relative" 
+    */
+    position: relative;
+    text-align: center;
     background-image: url('/resources/images/verse-banner.jpg');
     background-position: center;
     background-size: cover;
     border-radius: 6px;
-    text-align: center;
     font-family: Eczar;
     font-size: 2.5em;
     text-shadow: 2px 2px 3px #000;
+}
+
+.sanskrit-transliteration {
+    transition: all .1s ease-in-out;
+    visibility: hidden;
+    top: 25%;
+    right: 25%;
+    width: 300px;
+    background-color: var(--theme-color-bg-lighter);
+    color: var(--theme-color-text);
+    font-size: 1.2em;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.90;
+    border-radius: 6px;
+}
+
+.btn-transliteration {
+    position: absolute;
+    right: 1%;
+    bottom: 5%;
+    border: none !important;
+    filter: drop-shadow(0px 0px 5px #000);
+}
+
+.btn-transliteration:hover .sanskrit-transliteration {
+    visibility: visible;
 }
 
 .word-meaning-verse {
@@ -99,40 +135,22 @@ body {
     font-size: 1.2em;
 }
 
-.sanskrit-transliteration {
-    transition: all .1s ease-in-out;
-    visibility: hidden;
-    top: 25%;
-    right: 25%;
-    width: 300px;
-    background-color: var(--theme-color-text);
-    color: rgb(84, 84, 84);
-    font-size: 0.4em;
-    position: absolute;
-    z-index: 1;
-    opacity: 0.90;
-    border-radius: 6px;
+.sanskrit-word {
+    display: inline;
 }
 
-.sanskrit-transliteration:after {
-    content: " ";
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--theme-color-text) transparent transparent transparent;
-    transform: translateY(-10px) rotate(180deg);
+.sanskrit-word a {
+    color: inherit;
+    text-decoration: inherit; 
 }
 
-.verse-sanskrit-text:hover {
+.sanskrit-word:hover {
     color: var(--theme-color-secondary);
     text-shadow: var(--theme-color-bg-darker);
     cursor: pointer;
 }
 
-.verse-sanskrit-text:hover .sanskrit-transliteration {
+.sanskrit-word:hover .sanskrit-word-meaning {
     visibility: visible;
     text-shadow: none;
 }
@@ -190,10 +208,12 @@ body {
 
 .offcanvas-header {
     background-color: var(--theme-color-bg-darker);
+    font-family: Geramond;
 }
 
 .offcanvas-body {
     background-color: var(--theme-color-bg-dark);
+    font-family: Futura;
 }
 
 #verse_browser .list-group-item:hover {
@@ -219,4 +239,10 @@ body {
 
 .modal .modal-content {
     color: var(--theme-color-bg-dark);
+}
+
+/* Center the verse to page when a href'd */
+.verse-anchor {
+    position: absolute;
+    transform: translateY(-200px);
 }

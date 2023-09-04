@@ -11,8 +11,9 @@ function GenerateGitaChapterCard(chapter)
                 </div>
                     <div class="col-9">
                         <div class="chapter-title">
-                            <div class="chapter-title-sanskrit">&nbsp;${chapter_titles[chapter]}</div>
+                            <div class="chapter-title-sanskrit">${chapter_titles[chapter]}</div>
                             <div class="chapter-title-english">&nbsp;${chapter_titles_english[chapter]}</div>
+                            <div class="chapter-verses"><span class="fa fa-book"></span>&nbsp;${verses_per_chapter[chapter]} verses</div>
                         </div>
                     </div>
             </div>

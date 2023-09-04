@@ -25,6 +25,11 @@
     src: url('/resources/Futura.ttf') format("truetype");
 }
 
+@font-face {
+    font-family: Indicia;
+    src: url('/resources/Indicia.ttf') format("truetype");
+}
+
 :root {
     --theme-color-primary: rgb(240, 140, 7);
     --theme-color-secondary: rgb(243, 193, 7);

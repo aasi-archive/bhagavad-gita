@@ -54,24 +54,40 @@ function ProgressBarScrollCallback() {
 /* 
     Open up the share verse link modal.
 */
-function ShareVerseLink(modal, selector, chapter, verse)
-{
+function ShareVerseLink(modal, selector, chapter, verse) {
     var domain = location.protocol + '//' + location.host;
     var verseURL = `${domain}/${chapter}.html#${verse}`;
     $(selector).val(verseURL);
     $(modal).modal("show");
 }
 
-function CopyVerseLinktoClipboard(selector)
-{
+function CopyVerseLinktoClipboard(selector) {
     copyTextToClipboard($(selector).val());
 }
 
+/* Fatten a card if its near the center of screen */
+function FattenCard() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card) => {
+        const cardRect = card.getBoundingClientRect()
+        if (cardRect.top <= window.innerHeight / 2 && cardRect.bottom >= window.innerHeight / 2) {
+            // This card is fully visible in the viewport
+            card.style.transform = 'scale(1.05)'; // Increase size
+        } else {
+            card.style.transform = 'scale(0.90)'; // Reset size for other cards
+        }
+    });
+}
+
 $(document).ready(() => {
+    /* Fatten the card on document load */
+    FattenCard();
     /* Hide the progress bar */
     $(".progress-container").hide();
+
     document.addEventListener('scroll', () => {
         ProgressBarScrollCallback();
+        FattenCard();
     });
     AddSidebar();
-})
+});

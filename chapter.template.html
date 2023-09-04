@@ -51,16 +51,20 @@
     <div class="container">
         {% for verse in verses %}
         <!-- VERSE CARD -->
-        <div class="py-3" id="{{verse['verse_number']}}"></div>
-        <div class="card shadow-lg my-3">
+        <div class="verse-anchor py-3" id="{{verse['verse_number']}}"></div>
+        <div class="card shadow-lg my-5">
             <div class="card-body">
                 <div class="sanskrit-verse">
                     <span class="verse-sanskrit-text">
                         {{verse["text"]}}
+                    </span>
+
+                    <button class="btn btn-outline-warning btn-transliteration"><span
+                            class="fa fa-lg fa-language"></span>&nbsp;
                         <div class="sanskrit-transliteration">
                             {{verse["transliteration"]}}
                         </div>
-                    </span>
+                    </button>
                 </div>
 
                 <hr>

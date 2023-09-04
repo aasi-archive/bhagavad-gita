@@ -82,9 +82,21 @@ def GitaRenderChapter(chapter):
         verses.append(gita_json[chapter][verse])
     
     for verse in verses:
-        verse["text"] = ReplaceEnglishWithHindiNumbers((verse["text"].strip()).replace("\n\n", "<br>"))
-        verse["word_meanings"] = (verse["word_meanings"].strip()).replace("\n\n", "<br>")
-        verse["transliteration"] = verse["transliteration"].replace("\n\n", "<br>")
+        # Process the Sanskrit text, strip the leading newlines, replace the \n\ with <br>
+        processed_sanskrit_text = ReplaceEnglishWithHindiNumbers((verse["text"].strip()).replace("\n\n", " <br> "))
+        # Split the text by space
+        sanskrit_words = processed_sanskrit_text.split(" ")
+            
+        for i in range(0, len(sanskrit_words)):
+            word = sanskrit_words[i]
+
+            if("<br>" not in word):
+                # Put a <span> around every Sanskrit word, the learnsanskrit.cc link
+                sanskrit_words[i] = f'<div class="sanskrit-word"><a href="https://www.learnsanskrit.cc/translate?search={word.split("।")[0]}" target="_blank">{word}</a></div>&nbsp;'
+
+        verse["text"] = ''.join(sanskrit_words)
+        verse["word_meanings"] = verse["word_meanings"].strip()
+        verse["transliteration"] = verse["transliteration"].strip()
     
     next_chapter_url = ""
     previous_chapter_url = ""
