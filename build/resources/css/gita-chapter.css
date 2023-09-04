@@ -203,10 +203,12 @@ body {
 
 .sidebar-button {
     position: fixed;
-    top: 50%;
+    top: 90%;
     left: 0;
-    color: var(--theme-color-primary) !important;
+    color: var(--theme-color-text) !important;
+    background-color: var(--theme-color-primary) !important;
     border-color: var(--theme-color-primary) !important;
+    opacity: 0.75;
 }
 
 .sidebar-button:hover {

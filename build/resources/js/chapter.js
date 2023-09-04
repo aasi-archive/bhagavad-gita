@@ -9,8 +9,8 @@ function AddSidebar() {
     var chapter_no = $('#chapter_information').data('chapter-no');
 
     var offcanvas_html = `
-    <button class="btn btn-lg btn-outline-warning sidebar-button" data-bs-toggle="offcanvas" data-bs-target="#verse_browser_offcanvas" aria-controls="verse_browser_offcanvas">
-    <span class="fa fa-lg fa-arrow-right"></span>
+    <button class="btn btn-lg btn-warning sidebar-button" data-bs-toggle="offcanvas" data-bs-target="#verse_browser_offcanvas" aria-controls="verse_browser_offcanvas">
+    <span class="fa fa-lg fa-bars"></span>
     </button>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="verse_browser_offcanvas" aria-labelledby="verse_browser_offcanvas_label">
     <div class="offcanvas-header">

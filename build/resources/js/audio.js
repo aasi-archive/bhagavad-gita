@@ -18,8 +18,12 @@ function StopAllAudio() {
 
 // Play an audio given ID.
 function PlayAudio(audio_selector) {
-    StopAllAudio();
     audio_element = document.getElementById(audio_selector);
+    if(!audio_element.paused)
+    {
+        return;
+    }
+    StopAllAudio();
     audio_element.play();
 }
 
