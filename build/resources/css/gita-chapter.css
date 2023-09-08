@@ -246,3 +246,21 @@ body {
     position: absolute;
     transform: translateY(-200px);
 }
+
+/* For translation controls */
+.nav-item .active {
+    background-color: var(--theme-color-primary) !important;
+    color: var(--theme-color-text) !important;
+}
+
+.nav-item a {
+    color: var(--theme-color-text);
+}
+
+.nav-item .nav-link:hover {
+    background-color: var(--theme-color-text);
+}
+
+.nav-item a:hover {
+    color: var(--theme-color-bg-dark);
+}

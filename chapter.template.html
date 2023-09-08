@@ -70,8 +70,24 @@
                 <hr>
 
                 <div class="section-heading">TRANSLATION</div>
-                <div class="translation-verse">
-                    {{verse["translation"]}}
+                <ul class="nav nav-pills">
+                    <li class="nav-item px-2"><a class="nav-link active" data-bs-toggle="pill" href="#verse{{loop.index}}_en">EN</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill" href="#verse{{loop.index}}_de">DE</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="verse{{loop.index}}_en" class="tab-pane active">
+                        <div class="translation-verse">
+                            {{verse["translation"]}}
+                        </div>
+                    </div>
+
+                    <div id="verse{{loop.index}}_de" class="tab-pane fade">
+                        <div class="translation-verse">
+                            {{verse["translation_de"]}}
+                        </div>
+                    </div>
+
                 </div>
 
                 <hr>

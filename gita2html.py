@@ -97,7 +97,6 @@ def GitaRenderChapter(chapter):
         verse["text"] = ''.join(sanskrit_words)
         verse["word_meanings"] = verse["word_meanings"].strip()
         verse["transliteration"] = verse["transliteration"].strip()
-    
     next_chapter_url = ""
     previous_chapter_url = ""
 
