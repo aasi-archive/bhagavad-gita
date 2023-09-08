@@ -45,6 +45,11 @@ body {
     color: var(--theme-color-text);
 }
 
+.btn-close {
+    background-color: var(--theme-color-text);
+    border-radius: 25px;
+}
+
 .btn-nav:hover {
     background-color: var(--theme-color-primary);
 }
@@ -208,7 +213,7 @@ body {
 
 .offcanvas-header {
     background-color: var(--theme-color-bg-darker);
-    font-family: Geramond;
+    font-family: Garamond;
 }
 
 .offcanvas-body {
@@ -255,6 +260,10 @@ body {
 
 .nav-item a {
     color: var(--theme-color-text);
+}
+
+.nav-link {
+    font-family: Futura;
 }
 
 .nav-item .nav-link:hover {
