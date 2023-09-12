@@ -72,6 +72,8 @@
                 <div class="section-heading">TRANSLATION</div>
                 <ul class="nav nav-pills">
                     <li class="nav-item px-2"><a class="nav-link active" data-bs-toggle="pill" href="#verse{{loop.index}}_en">EN</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill" href="#verse{{loop.index}}_hi">हि</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill" href="#verse{{loop.index}}_ta">த</a></li>
                     <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill" href="#verse{{loop.index}}_de">DE</a></li>
                 </ul>
 
@@ -82,12 +84,24 @@
                         </div>
                     </div>
 
+                    <div id="verse{{loop.index}}_hi" class="tab-pane fade">
+                        <div class="translation-verse hi-text">
+                            {{verse["translation_hi"]}}
+                        </div>
+                    </div>
+                    
                     <div id="verse{{loop.index}}_de" class="tab-pane fade">
                         <div class="translation-verse">
                             {{verse["translation_de"]}}
                         </div>
                     </div>
 
+                    <div id="verse{{loop.index}}_ta" class="tab-pane fade">
+                        <div class="translation-verse ta-text">
+                            {{verse["translation_ta"]}}
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <hr>

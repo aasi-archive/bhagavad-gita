@@ -26,6 +26,11 @@
 }
 
 @font-face {
+    font-family: ClassicalTamil;
+    src: url('/resources/tamil-classic.ttf') format("truetype");
+}
+
+@font-face {
     font-family: Indicia;
     src: url('/resources/Indicia.ttf') format("truetype");
 }

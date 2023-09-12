@@ -65,6 +65,22 @@ def ReplaceEnglishWithHindiNumbers(text):
         text = text.replace(num, nummap[num])
     return text
 
+def ReplaceEnglishWithTamilNumbers(text):
+    nummap = {  "1": "௧",
+                "2": "௨",
+                "3": "௩",
+                "4": "௪",
+                "5": "௫",
+                "6": "௬",
+                "7": "௭",
+                "8": "௮",
+                "9": "௯",
+                "0": "०"
+            }
+    for num in nummap:
+        text = text.replace(num, nummap[num])
+    return text
+
 def GitaGenerateChapterPath(chapter, prefix=GITA_BUILD_DIR):
     return os.path.join(prefix, f'{chapter}.html')
 
@@ -97,6 +113,8 @@ def GitaRenderChapter(chapter):
         verse["text"] = ''.join(sanskrit_words)
         verse["word_meanings"] = verse["word_meanings"].strip()
         verse["transliteration"] = verse["transliteration"].strip()
+        verse["translation_hi"] = ((ReplaceEnglishWithHindiNumbers(verse["translation_hi"]).replace('--', '\u2014')).replace('-', '\u2014')).split(u'।।')[2]
+        verse["translation_ta"] = ReplaceEnglishWithTamilNumbers(verse["translation_ta"])
     next_chapter_url = ""
     previous_chapter_url = ""
 

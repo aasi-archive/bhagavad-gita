@@ -133,6 +133,14 @@ body {
     font-family: Garamond;
 }
 
+.translation-verse.hi-text {
+    font-family: Eczar;
+}
+
+.translation-verse.ta-text {
+    font-family: ClassicalTamil;
+}
+
 .section-heading {
     text-align: center;
     font-family: Futura;
