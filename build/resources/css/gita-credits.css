@@ -1,0 +1,71 @@
+@import url("/resources/css/gita-common.css");
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar {
+    color: var(--theme-color-text);
+    background-color: var(--theme-color-navbar);
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    z-index: 1000;
+    font-family: Garamond;
+    font-size: 1.8em;
+}
+
+.navbar h2 {
+    display: inline-block;
+}
+
+.btn-nav {
+    color: var(--theme-color-text);
+}
+
+.btn-nav:hover {
+    background-color: var(--theme-color-primary);
+}
+
+body {
+    background-color: var(--theme-color-bg-darker);
+    color: var(--theme-color-text);
+}
+
+.container {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.credits-title {
+    font-family: Garamond;
+}
+
+.credit-type {
+    font-family: Futura;
+}
+
+.creative-commons {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.eczar-text {
+    font-family: Eczar;
+}
+
+.classictamil-text {
+    font-family: ClassicTamil;
+}
+
+.garamond-text {
+    font-family: Garamond;
+}
+
+.indicia-text {
+    font-family: Indicia;
+}
+
+.futura-text {
+    font-family: Futura;
+}
