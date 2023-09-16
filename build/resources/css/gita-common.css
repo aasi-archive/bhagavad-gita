@@ -46,3 +46,13 @@
     --theme-color-bg-darker: rgb(35, 35, 35);
     --theme-color-bg-lighter: rgb(84, 84, 84);
 }
+
+hr {
+    border: 0;
+    min-height: 32px;
+    text-align: center;
+    background: url('/resources/images/divider.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1.0;
+}

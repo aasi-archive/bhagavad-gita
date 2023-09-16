@@ -27,4 +27,34 @@ $(document).ready(() => {
     {
         $("#chapter-cards").append(GenerateGitaChapterCard(i));
     }
+
+    /* For the button that allows us to jump to a verse directly. */
+    $('#btn-verse-jumper').click(function () {
+        var chapter = $('#chapter-select').val();
+        var verse = $('#verse-select').val();
+        window.location.href = `/${chapter}.html#${verse}`;
+    });
+
+    /* When chapter is changed, change the verses selection panel. */
+    $('#chapter-select').on('change', function () {
+        var chapter_no = $('#chapter-select').val();
+        var max_verses = verses_per_chapter[chapter_no];
+        $('#verse-select').html('');
+        for(var i = 1; i <= max_verses; i++)
+        {
+            $('#verse-select').append(`<option value="${i}">${i}</option>`);
+        }
+    });
+
+    /* Add the 18 chapters */
+    for(var i = 1; i <= 18; i++)
+    {
+        $('#chapter-select').append(`<option value="${i}">${i}. ${chapter_titles[i]}</option>`);
+    }
+    /* 
+        Trigger the chapter-select event on load so that the 47 verses is added to the
+        verse selector 
+    */
+    var chapter_select = document.getElementById('chapter-select');
+    chapter_select.dispatchEvent(new Event('change'));
 })

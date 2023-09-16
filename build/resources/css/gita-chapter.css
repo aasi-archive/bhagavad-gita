@@ -217,6 +217,7 @@ body {
     color: var(--theme-color-text);
     background-color: transparent;
     border: none;
+    font-family: Indicia;
 }
 
 .offcanvas-header {

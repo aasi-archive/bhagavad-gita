@@ -93,3 +93,43 @@ body {
     font-family: Helvetica;
     font-size: 0.8em;
 }
+
+.btn-index-go {
+    margin-top: 4px;
+    background-color: var(--theme-color-bg-light) !important;
+    color: var(--theme-color-text);
+    transition: all .2s ease-in-out;
+}
+
+.btn-index-go:hover {
+    transform: scale(1.1);
+    background-color: var(--theme-color-text) !important;
+    color: var(--theme-color-bg-light) !important;
+}
+
+#chapter-select, #verse-select {
+    border: 0;
+    font-family: Eczar;
+    background-color: var(--theme-color-bg-light) !important;
+    color: var(--theme-color-text);
+}
+
+/* width */
+select::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+select::-webkit-scrollbar-track {
+    background: var(--theme-color-bg-dark);
+}
+
+/* Handle */
+select::-webkit-scrollbar-thumb {
+    background: var(--theme-color-primary);
+}
+
+/* Handle on hover */
+select::-webkit-scrollbar-thumb:hover {
+    background: var(--theme-color-primary);
+}
