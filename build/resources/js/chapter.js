@@ -79,6 +79,17 @@ function FattenCard() {
     });
 }
 
+/* Get Commentary */
+function FetchCommentary(chapter, verse)
+{
+    fetch(`/commentary/${chapter}.${verse}.txt`)
+    .then(r => r.text())
+    .then(t => { 
+        $('#commentary-text').html(t);
+        $('#commentary-modal').modal('show');
+    });
+}
+
 $(document).ready(() => {
     /* Fatten the card on document load */
     FattenCard();

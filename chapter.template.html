@@ -71,10 +71,14 @@
 
                 <div class="section-heading">TRANSLATION</div>
                 <ul class="nav nav-pills">
-                    <li class="nav-item px-2"><a class="nav-link active" data-bs-toggle="pill" href="#verse{{loop.index}}_en">EN</a></li>
-                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill" href="#verse{{loop.index}}_hi">हि</a></li>
-                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill" href="#verse{{loop.index}}_ta">த</a></li>
-                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill" href="#verse{{loop.index}}_de">DE</a></li>
+                    <li class="nav-item px-2"><a class="nav-link active" data-bs-toggle="pill"
+                            href="#verse{{loop.index}}_en">EN</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill"
+                            href="#verse{{loop.index}}_de">DE</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill"
+                            href="#verse{{loop.index}}_hi">हि</a></li>
+                    <li class="nav-item px-2"><a class="nav-link" data-bs-toggle="pill"
+                            href="#verse{{loop.index}}_ta">த</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -84,15 +88,15 @@
                         </div>
                     </div>
 
-                    <div id="verse{{loop.index}}_hi" class="tab-pane fade">
-                        <div class="translation-verse hi-text">
-                            {{verse["translation_hi"]}}
-                        </div>
-                    </div>
-                    
                     <div id="verse{{loop.index}}_de" class="tab-pane fade">
                         <div class="translation-verse">
                             {{verse["translation_de"]}}
+                        </div>
+                    </div>
+
+                    <div id="verse{{loop.index}}_hi" class="tab-pane fade">
+                        <div class="translation-verse hi-text">
+                            {{verse["translation_hi"]}}
                         </div>
                     </div>
 
@@ -101,7 +105,7 @@
                             {{verse["translation_ta"]}}
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <hr>
@@ -127,7 +131,8 @@
                                     class="fa fa-stop"></span></button>
 
                             <audio id="recitation_{{verse['verse_number']}}"
-                                src="/recitation/{{verse['chapter_number']}}_{{verse['verse_number']}}.mp3"></audio>
+                                src="/recitation/{{verse['chapter_number']}}_{{verse['verse_number']}}.mp3"
+                                preload="none"></audio>
                         </div>
                     </div>
                     <div class="col-8">
@@ -137,11 +142,32 @@
                         <button class="btn btn-verse-menu mx-1 btn-secondary"
                             onClick="ShareVerseLink('#copy-verse-modal', '#copy-verse-input-box', {{verse['chapter_number']}}, {{verse['verse_number']}})"
                             style="float:right;"><span class="fa fa-share"></span></button>
+                        <button class="btn btn-verse-menu mx-1 btn-secondary"
+                            onClick="FetchCommentary({{verse['chapter_number']}}, {{verse['verse_number']}})"
+                            style="float:right;"><span class="fa fa-comment"></span></button>
                     </div>
                 </div>
             </div>
         </div>
         {% endfor %}
+    </div>
+
+    <!-- COMMENTARY MODAL -->
+    <div class="modal fade" tabindex="-1" id="commentary-modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header" id="commentary-title">
+                    <h5 class="modal-title">Adi Shankaracharya's Commentary (English)</h5>
+                </div>
+
+                <div class="modal-body">
+                    <div id="commentary-text">
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <!-- SHARE VERSE MODAL -->

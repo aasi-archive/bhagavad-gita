@@ -15,6 +15,7 @@
 .navbar h2 {
     display: inline-block;
 }
+
 /* Mobile */
 @media (max-width: 700px) {
     .navbar h2 {
@@ -74,7 +75,7 @@ body {
     background-color: var(--theme-color-bg-lighter);
     color: var(--theme-color-text);
     text-align: center;
-    font-family: Indicia;
+    font-family: 'Segoe UI';
     font-weight: bold;
 }
 
@@ -217,7 +218,7 @@ body {
     color: var(--theme-color-text);
     background-color: transparent;
     border: none;
-    font-family: Indicia;
+    font-family: Verdana;
 }
 
 .offcanvas-header {
@@ -281,4 +282,14 @@ body {
 
 .nav-item a:hover {
     color: var(--theme-color-bg-dark);
+}
+
+#commentary-title {
+    font-family: Futura;
+}
+
+#commentary-text {
+    font-family: Garamond;
+    overflow-y: scroll;
+    max-height: 700px;
 }
