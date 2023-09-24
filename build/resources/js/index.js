@@ -6,8 +6,8 @@ function GenerateGitaChapterCard(chapter)
         <div class="card-body">
             <div class="row">
                 <div class="col-3">
-                    <a href="/${chapter}.html" class="btn btn-index stretched-link">
-                    <img src="/resources/images/index-button.png" width="64px" height="64px"></a>
+                    <a href="/${chapter}.html" class="stretched-link"></a>
+                    <img src="/resources/images/index-button.png" style="border-radius:25px" width="64px" height="64px">
                 </div>
                     <div class="col-9">
                         <div class="chapter-title">
