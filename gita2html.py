@@ -1,6 +1,7 @@
 import json
 import jinja2
 import os
+import devtrans
 
 gita_json = None
 
@@ -105,10 +106,23 @@ def GitaRenderChapter(chapter):
             
         for i in range(0, len(sanskrit_words)):
             word = sanskrit_words[i]
-
+            # Separate the Devanagari full stop from the word
+            word_split_further = word.split('।')
+            addenum = ""
+            # If its greater than one it means we have a full stop here
+            if(len(word_split_further) > 1):
+                # Save the original word
+                ogword = word
+                word = word_split_further[0]
+                # Addenum
+                addenum = ogword[len(word):]
             if("<br>" not in word):
                 # Put a <span> around every Sanskrit word, the learnsanskrit.cc link
-                sanskrit_words[i] = f'<div class="sanskrit-word"><a href="https://www.learnsanskrit.cc/translate?search={word.split("।")[0]}" target="_blank">{word}</a></div>&nbsp;'
+                sanskrit_words[i] = f'<div class="sanskrit-word"><a href="https://www.learnsanskrit.cc/translate?search={word.split("।")[0]}" target="_blank">{word}<div class="word-tlt">{devtrans.dev2iast(word)}</div></a></div>&nbsp;'
+                if(len(addenum) > 0):
+                    sanskrit_words[i] += addenum
+            else:
+                sanskrit_words[i] += "<br>"
 
         verse["text"] = ''.join(sanskrit_words)
         verse["word_meanings"] = verse["word_meanings"].strip()
