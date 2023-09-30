@@ -16,14 +16,6 @@
     display: inline-block;
 }
 
-/* Mobile */
-@media (max-width: 700px) {
-    .navbar h2 {
-        font-size: 0.4em;
-    }
-}
-
-
 html {
     scroll-snap-type: y mandatory;
 }
@@ -86,12 +78,16 @@ body {
     */
     position: relative;
     text-align: center;
-    border-radius: 6px;
     font-family: Eczar;
+    background-image: url('/resources/images/verse-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     font-size: 2.5em;
     text-shadow: 2px 2px 3px #000;
     padding-block-start: 3%;
     padding-block-end: 5%;
+    border-radius: 25px;
 }
 
 
@@ -150,7 +146,7 @@ body {
     margin: none;
     font-family: monospace;
     font-size: 16px;
-    color: var(--theme-color-text);
+    color: rgb(240, 140, 7);
     text-align: center;
     font-weight: bolder;
     transform: translateY(0.8em);
@@ -276,11 +272,39 @@ body {
 }
 
 #commentary-text {
-    font-family: Garamond;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-y: scroll;
     max-height: 700px;
 }
 
 #commentary-text i {
     background-color: yellow;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .navbar h2 {
+        font-size: 0.4em;
+    }
+    .sanskrit-word .word-tlt {
+        visibility: hidden;
+    }
+
+    .sanskrit-verse {
+        font-size: 1.0em;
+    }
+    
+    .section-heading {
+        font-size: 0.8em;
+    }
+
+    .translation-verse {
+        font-size: 0.8em;
+    }
+
+    .word-meaning-verse {
+        font-size: 0.8em;
+    }
 }

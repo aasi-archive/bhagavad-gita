@@ -41,7 +41,7 @@ var chapter_titles_english = {
     15: "The Supreme Spirit",
     16: "The Fall of Man",
     17: "Three Kinds of Men",
-    18: "Liberation"
+    18: "For the Good of All Mankind"
 }
 
 var verses_per_chapter = {

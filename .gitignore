@@ -1,5 +1,4 @@
 ignore/
 build/*.html
-build/commentary/*.txt
 build/recitation/
 build/winhost.exe
