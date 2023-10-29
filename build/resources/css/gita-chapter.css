@@ -27,6 +27,7 @@ html::-webkit-scrollbar {
 body {
     background-color: var(--theme-color-bg-dark);
     color: var(--theme-color-text);
+    max-width: 100%;
 }
 
 .container {
@@ -235,6 +236,10 @@ body {
     background-color: var(--theme-color-primary);
 }
 
+.modal {
+    margin: auto;
+}
+
 .modal .modal-content {
     color: var(--theme-color-bg-dark);
 }
@@ -269,6 +274,11 @@ body {
 
 #commentary-title {
     font-family: Futura;
+}
+
+#commentary-text .nav .nav-item a {
+    background-color: var(--theme-color-text);
+    color: var(--theme-color-bg-dark);
 }
 
 #commentary-text {

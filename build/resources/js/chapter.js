@@ -80,14 +80,20 @@ function FattenCard() {
 }
 
 /* Get Commentary */
-function FetchCommentary(chapter, verse)
+async function FetchCommentary(chapter, verse)
 {
-    fetch(`/commentary/${chapter}.${verse}.txt`)
-    .then(r => r.text())
-    .then(t => { 
-        $('#commentary-text').html(t);
-        $('#commentary-modal').modal('show');
-    });
+
+    const [sankara_cmnt, kesava_cmnt, madhava_cmnt, ramanuja_cmnt] = await Promise.all([
+        (await fetch(`/commentary/sankara/${chapter}.${verse}.txt`)).text(),
+        (await fetch(`/commentary/kesava/${chapter}.${verse}.txt`)).text(),
+        (await fetch(`/commentary/madhava/${chapter}.${verse}.txt`)).text(),
+        (await fetch(`/commentary/ramanuja/${chapter}.${verse}.txt`)).text()
+    ]);
+    $('#commentary-sankara').html(sankara_cmnt);
+    $('#commentary-ramanuja').html(ramanuja_cmnt);
+    $('#commentary-kesava').html(kesava_cmnt);
+    $('#commentary-madhava').html(madhava_cmnt);
+    $('#commentary-modal').modal('show');
 }
 
 $(document).ready(() => {
